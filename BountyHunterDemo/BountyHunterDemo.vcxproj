@@ -23,7 +23,7 @@
     <ProjectGuid>{5EC831B4-FB60-448F-9F0A-5381343EDF2B}</ProjectGuid>
     <Keyword>Win32Proj</Keyword>
     <RootNamespace>BountyHunterDemo</RootNamespace>
-    <WindowsTargetPlatformVersion>10.0.15063.0</WindowsTargetPlatformVersion>
+    <WindowsTargetPlatformVersion>10.0.17134.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
@@ -87,9 +87,10 @@
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
-      <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>_DEBUG;_CONSOLE;ECS_EXPORT;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <SDLCheck>true</SDLCheck>
-      <AdditionalIncludeDirectories>$(SolutionDir)ThirdParty\ECS\include;$(SolutionDir)ThirdParty\glm-0.9.8.5\glm;$(SolutionDir)ThirdParty\log4cplus-1.2.1-rc2\include;$(SolutionDir)ThirdParty\glew-2.1.0\include;$(SolutionDir)ThirdParty\SDL2-2.0.6-win32-x64\include;$(SolutionDir)ThirdParty\Box2D;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)ThirdParty\ECS\include;$(SolutionDir)ThirdParty\ECS\include\ECS;$(SolutionDir)ThirdParty\glm-0.9.8.5\glm;$(SolutionDir)ThirdParty\log4cplus-1.2.1-rc2\include;$(SolutionDir)ThirdParty\glew-2.1.0\include;$(SolutionDir)ThirdParty\SDL2-2.0.6-win32-x64\include;$(SolutionDir)ThirdParty\Box2D;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -223,6 +224,26 @@ copy /Y "$(SolutionDir)ThirdParty\ECS\bin\x64\Release\EntityComponentSystem.dll"
     <ClCompile Include="..\ThirdParty\Box2D\Box2D\Dynamics\Joints\b2WeldJoint.cpp" />
     <ClCompile Include="..\ThirdParty\Box2D\Box2D\Dynamics\Joints\b2WheelJoint.cpp" />
     <ClCompile Include="..\ThirdParty\Box2D\Box2D\Rope\b2Rope.cpp" />
+    <ClCompile Include="..\ThirdParty\ECS\include\ECS\API.cpp" />
+    <ClCompile Include="..\ThirdParty\ECS\include\ECS\ComponentManager.cpp" />
+    <ClCompile Include="..\ThirdParty\ECS\include\ECS\Engine.cpp" />
+    <ClCompile Include="..\ThirdParty\ECS\include\ECS\EntityManager.cpp" />
+    <ClCompile Include="..\ThirdParty\ECS\include\ECS\Event\EventHandler.cpp" />
+    <ClCompile Include="..\ThirdParty\ECS\include\ECS\Event\IEvent.cpp" />
+    <ClCompile Include="..\ThirdParty\ECS\include\ECS\Event\IEventListener.cpp" />
+    <ClCompile Include="..\ThirdParty\ECS\include\ECS\IComponent.cpp" />
+    <ClCompile Include="..\ThirdParty\ECS\include\ECS\IEntity.cpp" />
+    <ClCompile Include="..\ThirdParty\ECS\include\ECS\ISystem.cpp" />
+    <ClCompile Include="..\ThirdParty\ECS\include\ECS\Log\Logger.cpp" />
+    <ClCompile Include="..\ThirdParty\ECS\include\ECS\Log\LoggerManager.cpp" />
+    <ClCompile Include="..\ThirdParty\ECS\include\ECS\Memory\Allocator\IAllocator.cpp" />
+    <ClCompile Include="..\ThirdParty\ECS\include\ECS\Memory\Allocator\LinearAllocator.cpp" />
+    <ClCompile Include="..\ThirdParty\ECS\include\ECS\Memory\Allocator\PoolAllocator.cpp" />
+    <ClCompile Include="..\ThirdParty\ECS\include\ECS\Memory\Allocator\StackAllocator.cpp" />
+    <ClCompile Include="..\ThirdParty\ECS\include\ECS\Memory\ECSMM.cpp" />
+    <ClCompile Include="..\ThirdParty\ECS\include\ECS\SystemManager.cpp" />
+    <ClCompile Include="..\ThirdParty\ECS\include\ECS\util\FamilyTypeID.cpp" />
+    <ClCompile Include="..\ThirdParty\ECS\include\ECS\util\Timer.cpp" />
     <ClCompile Include="AICollectorController.cpp" />
     <ClCompile Include="Bounty.cpp" />
     <ClCompile Include="BountyHunterDemo.cpp" />
@@ -330,6 +351,38 @@ copy /Y "$(SolutionDir)ThirdParty\ECS\bin\x64\Release\EntityComponentSystem.dll"
     <ClInclude Include="..\ThirdParty\Box2D\Box2D\Dynamics\Joints\b2WeldJoint.h" />
     <ClInclude Include="..\ThirdParty\Box2D\Box2D\Dynamics\Joints\b2WheelJoint.h" />
     <ClInclude Include="..\ThirdParty\Box2D\Box2D\Rope\b2Rope.h" />
+    <ClInclude Include="..\ThirdParty\ECS\include\ECS\API.h" />
+    <ClInclude Include="..\ThirdParty\ECS\include\ECS\Component.h" />
+    <ClInclude Include="..\ThirdParty\ECS\include\ECS\ComponentManager.h" />
+    <ClInclude Include="..\ThirdParty\ECS\include\ECS\ECS.h" />
+    <ClInclude Include="..\ThirdParty\ECS\include\ECS\Engine.h" />
+    <ClInclude Include="..\ThirdParty\ECS\include\ECS\Entity.h" />
+    <ClInclude Include="..\ThirdParty\ECS\include\ECS\EntityManager.h" />
+    <ClInclude Include="..\ThirdParty\ECS\include\ECS\Event\Event.h" />
+    <ClInclude Include="..\ThirdParty\ECS\include\ECS\Event\EventDelegate.h" />
+    <ClInclude Include="..\ThirdParty\ECS\include\ECS\Event\EventDispatcher.h" />
+    <ClInclude Include="..\ThirdParty\ECS\include\ECS\Event\EventHandler.h" />
+    <ClInclude Include="..\ThirdParty\ECS\include\ECS\Event\IEvent.h" />
+    <ClInclude Include="..\ThirdParty\ECS\include\ECS\Event\IEventDispatcher.h" />
+    <ClInclude Include="..\ThirdParty\ECS\include\ECS\Event\IEventListener.h" />
+    <ClInclude Include="..\ThirdParty\ECS\include\ECS\IComponent.h" />
+    <ClInclude Include="..\ThirdParty\ECS\include\ECS\IEntity.h" />
+    <ClInclude Include="..\ThirdParty\ECS\include\ECS\ISystem.h" />
+    <ClInclude Include="..\ThirdParty\ECS\include\ECS\Log\Logger.h" />
+    <ClInclude Include="..\ThirdParty\ECS\include\ECS\Log\LoggerMacro.h" />
+    <ClInclude Include="..\ThirdParty\ECS\include\ECS\Log\LoggerManager.h" />
+    <ClInclude Include="..\ThirdParty\ECS\include\ECS\Memory\Allocator\IAllocator.h" />
+    <ClInclude Include="..\ThirdParty\ECS\include\ECS\Memory\Allocator\LinearAllocator.h" />
+    <ClInclude Include="..\ThirdParty\ECS\include\ECS\Memory\Allocator\PoolAllocator.h" />
+    <ClInclude Include="..\ThirdParty\ECS\include\ECS\Memory\Allocator\StackAllocator.h" />
+    <ClInclude Include="..\ThirdParty\ECS\include\ECS\Memory\ECSMM.h" />
+    <ClInclude Include="..\ThirdParty\ECS\include\ECS\Memory\MemoryChunkAllocator.h" />
+    <ClInclude Include="..\ThirdParty\ECS\include\ECS\Platform.h" />
+    <ClInclude Include="..\ThirdParty\ECS\include\ECS\System.h" />
+    <ClInclude Include="..\ThirdParty\ECS\include\ECS\SystemManager.h" />
+    <ClInclude Include="..\ThirdParty\ECS\include\ECS\util\FamilyTypeID.h" />
+    <ClInclude Include="..\ThirdParty\ECS\include\ECS\util\Handle.h" />
+    <ClInclude Include="..\ThirdParty\ECS\include\ECS\util\Timer.h" />
     <ClInclude Include="AICollectorController.h" />
     <ClInclude Include="AICollectorControllerDesc.h" />
     <ClInclude Include="AIController.h" />
